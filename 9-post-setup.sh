@@ -120,10 +120,6 @@ sudo systemctl start bluetooth.service
 # ------------------------------------------------------------------------
 
 echo
-echo "Enabling the cups service daemon so we can print"
-
-systemctl enable org.cups.cupsd.service
-systemctl start org.cups.cupsd.service
 sudo ntpd -qg
 sudo systemctl enable ntpd.service
 sudo systemctl start ntpd.service
