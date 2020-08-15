@@ -37,7 +37,6 @@ PKGS=(
         'lightdm-webkit2-greeter'   # Framework for Awesome Login Themes
 
     # --- Networking Setup
-        'wpa_supplicant'            # Key negotiation for WPA wireless networks
         'dialog'                    # Enables shell scripts to trigger dialog boxex
         'networkmanager'            # Network connection manager
         'openvpn'                   # Open VPN support
@@ -60,14 +59,6 @@ PKGS=(
         'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
         'blueberry'             # Bluetooth configuration tool
         'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
-    
-    # --- Printers
-        'cups'                  # Open source printer drivers
-        'cups-pdf'              # PDF support for cups
-        'ghostscript'           # PostScript interpreter
-        'gsfonts'               # Adobe Postscript replacement fonts
-        'hplip'                 # HP Drivers
-        'system-config-printer' # Printer setup  utility
 )
 )
 
