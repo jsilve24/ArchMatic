@@ -8,6 +8,7 @@ This README contains the steps I do to install and configure a fully-functional 
 
 ## Setup Boot and Arch ISO on USB key
 
+TODO: steps to do this
 First, setup the boot USB, boot arch live iso, and run the `preinstall.sh` from terminal. 
 
 ### Arch Live ISO (Pre-Install)
@@ -32,10 +33,6 @@ cd ArchMatic
 ./3-software-aur.sh
 ./9-post-setup.sh
 ```
-
-### Don't just run these scripts. Examine them. Customize them. Create your own versions.
-
----
 
 ### System Description
 This runs Awesome Window Manager with the base configuration from the Material-Awesome project <https://github.com/ChrisTitusTech/material-awesome>.
