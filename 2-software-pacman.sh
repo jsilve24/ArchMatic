@@ -31,12 +31,10 @@ PKGS=(
     'neofetch'              # Shows system info when you launch terminal
     'ntp'                   # Network Time Protocol to set time via network.
     'numlockx'              # Turns on numlock in X11
-    'openssh'               # SSH connectivity tools
     'p7zip'                 # 7z compression program
     'rsync'                 # Remote file sync utility
     'speedtest-cli'         # Internet speed via terminal
     'terminus-font'         # Font package with some bigger fonts for login terminal
-    'tlp'                   # Advanced laptop power management
     'unrar'                 # RAR compression program
     'unzip'                 # Zip compression program
     'wget'                  # Remote content retrieval
@@ -49,8 +47,6 @@ PKGS=(
 
     # DISK UTILITIES ------------------------------------------------------
 
-    'android-tools'         # ADB for Android
-    'android-file-transfer' # Android File Transfer
     'autofs'                # Auto-mounter
     'btrfs-progs'           # BTRFS Support
     'dosfstools'            # DOS Support
@@ -94,15 +90,7 @@ PKGS=(
 
     # MEDIA ---------------------------------------------------------------
 
-    'kdenlive'              # Movie Render
-    'obs-studio'            # Record your screen
     'celluloid'             # Video player
-    
-    # GRAPHICS AND DESIGN -------------------------------------------------
-
-    'gcolor2'               # Colorpicker
-    'gimp'                  # GNU Image Manipulation Program
-    'ristretto'             # Multi image viewer
 
     # PRODUCTIVITY --------------------------------------------------------
 
