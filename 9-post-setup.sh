@@ -125,6 +125,8 @@ sudo systemctl enable ntpd.service
 sudo systemctl start ntpd.service
 sudo systemctl disable dhcpcd.service
 sudo systemctl stop dhcpcd.service
+sudo systemctl disable ssh.service
+sudo systemctl stop ssh.service
 sudo systemctl enable NetworkManager.service
 sudo systemctl start NetworkManager.service
 echo "
