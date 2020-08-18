@@ -60,7 +60,6 @@ PKGS=(
         'blueberry'             # Bluetooth configuration tool
         'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
 )
-)
 
 for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
