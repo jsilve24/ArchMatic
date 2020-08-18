@@ -15,13 +15,18 @@ This step installs arch to your hard drive. *IT WILL FORMAT THE DISK*
 ```bash
 curl https://raw.githubusercontent.com/johnynfulleffect/ArchMatic/master/preinstall.sh -o preinstall.sh
 sh preinstall.sh
+
+arch-chroot
+passwd
+systemctl enable NetworkManager
+
 reboot
 ```
 
 ### Arch Linux First Boot
 
 ```bash
-pacman -S --no-confirm pacman-contrib curl git
+pacman -S --noconfirm pacman-contrib curl git
 git clone https://github.com/johnynfulleffect/ArchMatic
 cd ArchMatic
 sh ./0-setup.sh \
