@@ -7,7 +7,7 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-if ! source install.conf; then
+if ! source /install.conf; then
 	echo "Please enter hostname:"
 	read hostname
 
