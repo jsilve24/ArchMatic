@@ -13,12 +13,12 @@ echo "-------------------------------------------------"
 timedatectl set-ntp true
 pacman -S --noconfirm pacman-contrib
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
+curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' > /etc/pacman.d/mirrorlist
 
-
+pacman -Syyy
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S --noconfirm gptfdisk btrfs-progs
+pacman -S --noconfirm gptfdisk
 
 echo "-------------------------------------------------"
 echo "-------select your disk to format----------------"
@@ -49,46 +49,48 @@ sgdisk -c 2:"ROOT" ${DISK}
 # make filesystems
 echo -e "\nCreating Filesystems...\n$HR"
 
-mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-mkfs.ext4 -L "ROOT" "${DISK}2"
+mkfs.vfat -F32 -n "UEFISYS" "${DISK}p1"
+mkfs.ext4 -L "ROOT" "${DISK}p2"
 
 # mount target
 mkdir /mnt
-mount -t ext4 "${DISK}2" /mnt
+mount -t ext4 "${DISK}p2" /mnt
 mkdir /mnt/boot
 mkdir /mnt/boot/efi
-mount -t vfat "${DISK}1" /mnt/boot/
+mount -t vfat "${DISK}p1" /mnt/boot/
 
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
 pacstrap /mnt base base-devel --noconfirm --needed
-genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
 
-echo "--------------------------------------"
-echo "-- Bootloader Systemd Installation  --"
-echo "--------------------------------------"
-bootctl install
-cat <<EOF > /boot/loader/entries/arch.conf
-title Arch Linux  
-linux /vmlinuz-linux  
-initrd  /initramfs-linux.img  
-options root=${DISK}1 rw
-EOF
+# kernel
+pacstrap /mnt linux linux-firmware --noconfirm --needed
 
 echo "--------------------------------------"
 echo "-- Setup                            --"
 echo "--------------------------------------"
 
-echo "Please enter root password:"
+# amd microcode and drivers
+pacstrap /mnt amd-ucode xorg xorg-drivers --noconfirm --needed
 
-password
+pacstrap /mnt networkmanager --noconfirm --needed
 
-pacman -S networkmanager --noconfirm --needed
-systemctl enable NetworkManager
+# fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
-exit
+echo "--------------------------------------"
+echo "-- Bootloader Systemd Installation  --"
+echo "--------------------------------------"
+bootctl install --esp-path /mnt/boot
+cat <<EOF > /mnt/boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+initrd /amd-ucode.img
+initrd /initramfs-linux.img
+options root=${DISK}p2 rw
+EOF
+
 umount -R /mnt
 
 echo "--------------------------------------"
