@@ -77,6 +77,17 @@ initrd  /initramfs-linux.img
 options root=${DISK}1 rw
 EOF
 
+echo "--------------------------------------"
+echo "-- Setup                            --"
+echo "--------------------------------------"
+
+echo "Please enter root password:"
+
+password
+
+pacman -S networkmanager --noconfirm --needed
+systemctl enable NetworkManager
+
 exit
 umount -R /mnt
 
