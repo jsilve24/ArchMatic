@@ -24,10 +24,10 @@ reboot
 pacman -S --no-confirm pacman-contrib curl git
 git clone https://github.com/johnynfulleffect/ArchMatic
 cd ArchMatic
-./0-setup.sh
-./1-base.sh
-./2-software-pacman.sh
-./3-software-aur.sh
+sh ./0-setup.sh \
+./1-base.sh \
+./2-software-pacman.sh \
+./3-software-aur.sh \
 ./9-post-setup.sh
 ```
 
