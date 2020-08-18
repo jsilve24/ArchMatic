@@ -26,8 +26,9 @@ git clone https://github.com/johnynfulleffect/ArchMatic
 cd ArchMatic
 sh ./0-setup.sh \
 ./1-base.sh \
-./2-software-pacman.sh \
-./3-software-aur.sh \
+./2-software-pacman.sh
+su john
+sh ./3-software-aur.sh \
 ./9-post-setup.sh
 ```
 
