@@ -7,7 +7,7 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-if ! source /install.conf; then
+
 	echo "Please enter hostname:"
 	read hostname
 
@@ -28,7 +28,7 @@ if ! source /install.conf; then
   printf "hostname="$hostname"\n" >> "install.conf"
   printf "username="$username"\n" >> "install.conf"
   printf "password="$password"\n" >> "install.conf"
-fi
+
 
 echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
