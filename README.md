@@ -16,9 +16,11 @@ This step installs arch to your hard drive. *IT WILL FORMAT THE DISK*
 curl https://raw.githubusercontent.com/johnynfulleffect/ArchMatic/master/preinstall.sh -o preinstall.sh
 sh preinstall.sh
 
-arch-chroot
+useradd -m --groups users,wheel john
+echo "john:password" | chpasswd
 passwd
 systemctl enable NetworkManager
+exit
 
 reboot
 ```
@@ -29,12 +31,13 @@ reboot
 pacman -S --noconfirm pacman-contrib curl git
 git clone https://github.com/johnynfulleffect/ArchMatic
 cd ArchMatic
-sh ./0-setup.sh \
-./1-base.sh \
-./2-software-pacman.sh
+sh 0-setup.sh
+sh 1-base.sh
+sh 2-software-pacman.sh
 su john
-sh ./3-software-aur.sh \
-./9-post-setup.sh
+sh 3-software-aur.sh
+su
+sh 9-post-setup.sh
 ```
 
 ### System Description
