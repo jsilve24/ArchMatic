@@ -22,6 +22,7 @@ passwd
 systemctl enable NetworkManager
 exit
 
+umount -R /mnt
 reboot
 ```
 
