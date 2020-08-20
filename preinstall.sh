@@ -64,7 +64,7 @@ echo "--------------------------------------"
 pacstrap /mnt base base-devel --noconfirm --needed
 
 # kernel
-pacstrap /mnt linux linux-firmware amd-ucode --noconfirm --needed
+pacstrap /mnt linux linux-firmware --noconfirm --needed
 
 echo "--------------------------------------"
 echo "-- Setup Dependencies               --"
@@ -82,7 +82,6 @@ bootctl install --esp-path /mnt/boot
 cat <<EOF > /mnt/boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
-initrd /amd-ucode.img
 initrd /initramfs-linux.img
 options root=${DISK}p2 rw
 EOF
