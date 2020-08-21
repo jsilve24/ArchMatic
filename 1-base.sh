@@ -22,6 +22,7 @@ PKGS=(
         'xorg-xinit'            # XOrg init
         'xorg-xinput'           # Xorg xinput
         'mesa'                  # Open source version of OpenGL
+        'xf86-video-amdgpu'     # XOrg amdgpu video driver
 
     # --- Setup Desktop
         'awesome'               # Awesome Desktop
