@@ -15,12 +15,12 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
 
-    #'linux-lts'             # Long term support kernel
+    'linux-lts'             # Long term support kernel
 
     # TERMINAL UTILITIES --------------------------------------------------
 
-    'bash-completion'       # Tab completion for Bash
     'bleachbit'             # File deletion utility
+    'cmatrix'               # The Matrix screen animation
     'cronie'                # cron jobs
     'curl'                  # Remote content retrieval
     'file-roller'           # Archive utility
@@ -68,6 +68,7 @@ PKGS=(
     # MEDIA ---------------------------------------------------------------
 
     'celluloid'             # Video player
+    'feh'                   # Image viewer
 
     # PRODUCTIVITY --------------------------------------------------------
 
