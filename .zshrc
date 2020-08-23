@@ -1,4 +1,4 @@
-export ZSH="/home/john/oh-my-zsh"
+export ZSH="/home/john/.oh-my-zsh"
 export FZF_BASE="/home/.fzf"
 
 ZSH_THEME="agnoster"
