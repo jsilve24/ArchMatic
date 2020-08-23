@@ -88,6 +88,18 @@ EOF
 # ------------------------------------------------------------------------
 
 echo
+echo "Enable AMD Tear Free"
+
+sudo cat <<EOF > /etc/X11/xorg.conf.d/20-amdgpu.conf
+Section "Device"
+     Identifier "AMD"
+     Driver "amdgpu"
+     Option "TearFree" "true"
+EndSection
+EOF
+
+# ------------------------------------------------------------------------
+echo
 echo "Increasing file watcher count"
 
 # This prevents a "too many files" error in Visual Studio Code
