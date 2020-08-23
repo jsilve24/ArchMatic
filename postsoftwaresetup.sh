@@ -14,6 +14,8 @@ echo "-------------------------------------------------"
 # Configure awesome-wm
 git clone https://github.com/ChrisTitusTech/material-awesome.git ~/.config/awesome
 
+lxappearance
+
 sed -i 's/^gtk-theme-name=Adwaita/gtk-theme-name=Materia-dark/' ~/.config/gtk-3.0/settings.ini
 sed -i 's/^gtk-icon-theme-name=Adwaita/gtk-icon-theme-name=Papirus-Dark/' ~/.config/gtk-3.0/settings.ini
 
