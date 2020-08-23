@@ -1,4 +1,4 @@
-export ZSH="~/.oh-my-zsh"
+export ZSH="/home/john/oh-my-zsh"
 export FZF_BASE="/home/.fzf"
 
 ZSH_THEME="agnoster"
@@ -17,7 +17,7 @@ source $ZSH/oh-my-zsh.sh
 eval `dircolors ~/.dir_colors/dircolors`
 
 # Highlighting:
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/john/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Large history file
 HISTSIZE=10000000
