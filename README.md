@@ -16,7 +16,7 @@ This step installs arch to your hard drive. *IT WILL FORMAT THE DISK*
 curl https://raw.githubusercontent.com/johnynfulleffect/ArchMatic/master/preinstall.sh -o preinstall.sh
 sh preinstall.sh
 
-useradd -m --groups users,wheel username
+useradd -m -G users,wheel username
 echo "username:password" | chpasswd
 passwd
 systemctl enable NetworkManager
