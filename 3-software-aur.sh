@@ -35,11 +35,12 @@ PKGS=(
     'lightdm-webkit-theme-aether'   # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
     'materia-gtk-theme'             # Desktop Theme
     'papirus-icon-theme'            # Desktop Icons
+    'capitaine-cursors'            # Cursor Icons
 
     # APPS ----------------------------------------------------------------
 
     'discord'                       # Chat for gamers
-    'youtubemusic-nativefier'       # Music
+    'youtubemusic-nativefier'        # Music
 
 )
 
