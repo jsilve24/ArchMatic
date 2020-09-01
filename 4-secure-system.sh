@@ -32,6 +32,10 @@ order bind,hosts
 multi on
 EOF
 
+# --- Enable ufw
+sudo systemctl enable ufw
+sudo systemctl start ufw
+
 # --- Enable fail2ban
 curl https://raw.githubusercontent.com/johnynfulleffect/secure-linux/master/jail.local -o /etc/fail2ban/jail.local
 systemctl enable fail2ban
