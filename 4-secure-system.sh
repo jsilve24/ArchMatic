@@ -33,8 +33,8 @@ multi on
 EOF
 
 # --- Enable ufw
-sudo systemctl enable ufw
-sudo systemctl start ufw
+systemctl enable ufw
+systemctl start ufw
 
 # --- Enable fail2ban
 curl https://raw.githubusercontent.com/johnynfulleffect/secure-linux/master/jail.local -o /etc/fail2ban/jail.local
