@@ -125,6 +125,18 @@ sudo systemctl start lightdm.service
 # ------------------------------------------------------------------------
 
 echo
+echo "Enabling Cronie"
+
+touch /etc/crontab
+
+sudo systemctl start cronie
+sudo systemctl start cronie.service
+sudo systemctl enable cronie
+sudo systemctl enable cronie.service
+
+# ------------------------------------------------------------------------
+
+echo
 echo "Enabling bluetooth daemon and setting it to auto-start"
 
 sudo sed -i 's|#AutoEnable=false|AutoEnable=true|g' /etc/bluetooth/main.conf
