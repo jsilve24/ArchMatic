@@ -16,8 +16,18 @@ echo
 
 cd "${HOME}"
 
-echo "CLONING: YAY"
-git clone "https://aur.archlinux.org/yay.git"
+
+package="yay";
+check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+if [ -n "${check}" ] ; then
+    echo "${package} is installed";
+elif [ -z "${check}" ] ; then
+    echo "${package} is NOT installed";
+    echo "CLONING: YAY"
+    git clone "https://aur.archlinux.org/yay.git"
+    cd ${HOME}/yay
+    makepkg -si
+fi;
 
 
 PKGS=(
@@ -102,11 +112,8 @@ PKGS=(
     'nss-mdns'			# For Hostname Resolution
 )
 
-cd ${HOME}/yay
-makepkg -si
-
 # Change default shell
-chsh -s $(which zsh)
+# chsh -s $(which zsh)
 
 for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
