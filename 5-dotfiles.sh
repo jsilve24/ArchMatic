@@ -35,7 +35,7 @@ sudo systemctl enable plocate-updatedb.timer
 echo
 echo "Enabling Printing"
 echo 
-cat <<EOF > /etc/nsswitch.conf
+sudo bash 'cat <<EOF > /etc/nsswitch.conf
 # Name Service Switch configuration file.
 # See nsswitch.conf(5) for details.
 
@@ -55,7 +55,7 @@ ethers: files
 rpc: files
 
 netgroup: files
-EOF
+EOF'
 
 sudo systemctl enable --now avahi-daemon.service
 sudo systemctl enable --now cups.service
@@ -100,7 +100,7 @@ echo
 echo "Setting up Ly Display Manager"
 echo
 sudo systemctl enabel ly.service
-sudo cat <<EOF > /etc/pam.d/xinitrc
+sudo bash 'cat <<EOF > /etc/pam.d/ly
 #%PAM-1.0
 
 auth       include      login
@@ -109,18 +109,18 @@ password   include      login
 session    include      login
 auth     optional  pam_gnupg.so store-only
 session  optional  pam_gnupg.so
-EOF
+EOF'
 gpgconf --reload gpg-agent
 
 echo
 echo "Setting up EXWM"
 echo 
-sudo cat<<EOF > /usr/share/xsessions/emacs.desktop 
+sudo bash 'cat<<EOF > /usr/share/xsessions/emacs.desktop 
 [Desktop Entry]
 Name=Emacs
 Exec=emacs
 Type=Application
-EOF
+EOF'
 
 
 echo
