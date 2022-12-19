@@ -18,7 +18,7 @@ PKGS=(
 	'xorg-xrandr'
         'xorg-xinit'            # XOrg init
 	'xorg-xsetroot'
-	'xorg-xbacklight'       # provides xbacklight command
+	'acpilight'       # provides xbacklight command
         'xterm'                 # Terminal for TTY
 	'alacritty'
 	'git'

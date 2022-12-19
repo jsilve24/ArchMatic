@@ -35,7 +35,7 @@ sudo systemctl enable plocate-updatedb.timer
 echo
 echo "Enabling Printing"
 echo 
-sudo bash 'cat <<EOF > /etc/nsswitch.conf
+sudo bash -c 'cat <<EOF > /etc/nsswitch.conf
 # Name Service Switch configuration file.
 # See nsswitch.conf(5) for details.
 
@@ -100,7 +100,7 @@ echo
 echo "Setting up Ly Display Manager"
 echo
 sudo systemctl enabel ly.service
-sudo bash 'cat <<EOF > /etc/pam.d/ly
+sudo bash -c 'cat <<EOF > /etc/pam.d/ly
 #%PAM-1.0
 
 auth       include      login
@@ -115,7 +115,7 @@ gpgconf --reload gpg-agent
 echo
 echo "Setting up EXWM"
 echo 
-sudo bash 'cat<<EOF > /usr/share/xsessions/emacs.desktop 
+sudo bash -c 'cat<<EOF > /usr/share/xsessions/emacs.desktop 
 [Desktop Entry]
 Name=Emacs
 Exec=emacs
@@ -159,7 +159,9 @@ npm install postcss postcss-cli autoprefixer
 echo 
 echo "Giving User Backlight Privledges"
 echo 
-sudo bash 'cat <<EOF > /etc/udev/rules.d/backlight.rules
+sudo touch /etc/udev/rules.d/backlight.rules
+sudo bash -c 'cat << EOF > /etc/udev/rules.d/backlight.rules
 ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness"
 ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
 EOF'
+sudo usermod -aG video jds6696
