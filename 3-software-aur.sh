@@ -41,6 +41,7 @@ PKGS=(
     'zoxide'
     'kmonad-bin'
     'gnupg'
+    'pam-gnupg'
     'xournalpp'
     'globalprotect-openconnect' # for PSU vpn
 
