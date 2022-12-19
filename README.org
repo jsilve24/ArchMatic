@@ -1,0 +1,243 @@
+Follow Install Guidelines here http://wiki.archlinux.org/title/installation_guide
+
+* Get Install Medium
+
+** Check Install Signature 
+#+begin_src sh :eval none
+  pacman-key -v archlinux...iso.sig
+#+end_src
+
+** Write iso to usb use =lsblk= to find usb dev 
+#+begin_src sh :eval none
+  sudo cp archlinux...iso /dev/sdx
+#+end_src
+
+* Setup Disks 
+
+** Boot into USB 
+On Lenvovo, hold down or press F12 at boot. 
+
+** Keyboard Layout
+Default (US) is fine
+
+** Verify Boot Mode
+#+begin_src sh :eval none
+  ls /sys/firmware/efi/efivars
+#+end_src
+
+** Connect to the Internet
+#+begin_src sh :eval none
+  iwctl 
+  device list
+  station wlan0 scan
+  station wlan0 get-networks # to get ssid
+  station wlan0 connect 'Homewood Farm' # will prompt for password
+  exit
+  ping google.com
+#+end_src
+
+** Update System Clock
+#+begin_src sh :eval none
+timedatectl status  
+#+end_src
+
+** Partition the Disks 
+lsblk                      # list devices
+fdisk /dev/nvme0n1         # drops into interactive fdisk utility
+# create 3 partitions EFI (p1) SWAP (p2) and root partition (p3)
+# p1 will be 512M, p2 will be 64 gb (size of ram +2), p3 will be remainder
+# Will partition with gpt (works better with UEFI boot mode apparently)
+g                          # to create new empty gpt partition table
+n                          # to create new partition
+[enter]                    # to make it default partition number [1]
+[enter]                    # to accept default first sector
++512M                      # to set last sector (e.g., size) of first partition
+t                          # to change filesystem type
+1                          # to select EFI type
+# repeat for other partitions
+n
+[enter]
+[enter]
++64G
+t
+19  # linux swap
+n
+[enter]
+[enter]
+[enter] # remainder of disk
+w     # write changes    to disk and exit fdisk
+
+**  Format Partitions 
+mkfs.fat -F 32 /dev/nvme0n1p1     # format EFI (p1) partition to FAT32
+mkfs.ext4 /dev/nvme0n1p3          # format ext4 for (p3) root partition 
+mkswap /dev/nvme0n1p2             # format swap partition
+lsblk -f   # to check results
+
+** Mount the filesystem 
+mount /dev/nvme0n1p3 /mnt               # mount root partition
+mkdir /mnt/boot
+mount /dev/nvme0n1p1 /mnt/boot          # mount efi
+swapon /dev/nvme0n1p2
+
+* Install 
+
+** Select Mirrors
+vim /etc/pacman.d/mirrorlist # move geographically close stuff up (within reason)
+# I put the arch.mirror.constant.com up top
+
+** Pacstrap to install essential packages
+If its an old install image/usb then may need to run 
+#+begin_src sh :eval none
+pacman-key --refresh-keys # takes a while just make a new install medium  
+#+end_src
+
+Then install essential packages 
+#+begin_src sh :eval none
+pacstrap -K /mnt base linux linux-firmware archlinux-keyring vim sudo
+#+end_src
+
+** Configure New System 
+#+begin_src sh :eval none
+genfstab -U /mnt >> /mnt/etc/fstab ## generate fstab using UUID
+less /mnt/etc/fstab ## check results - edit if necessary
+#+end_src
+
+** Chroot into new system
+#+begin_src sh :eval none
+arch-chroot /mnt
+#+end_src
+
+** Set the timezone
+#+begin_src sh :eval none
+ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
+# run hwclock to generate /etc/adjtime 
+hwclock --systohc
+#+end_src
+
+** Localization
+#+begin_src sh :eval none
+vim /etc/locale.gen
+# then uncomment en_US.UTF-8 UTF-8
+local-gen # to generate locales
+vim /etc/locale.conf
+# add LANG=en_US.UTF-8
+#+end_src
+
+** Network Configuration
+#+begin_src sh :eval none
+vim /etc/hostname
+# add line lenovoGen4Sil as my hostname (lenovoGen2Sil for backup)
+# install networking software
+pacman -S networkmanager net-tools inetutils iwd
+#+end_src
+
+** Initramfs
+Nothing done
+
+** Set root password
+#+begin_src sh :eval none
+  # make same as gpg
+  passwd  
+#+end_src
+
+** Setup Bootloader 
+#+begin_src sh :eval none
+  pacman -S grub efibootmgr  
+
+  # follow instructions to install grub found in the grub artcle of the arch wiki (under UEFI Systems)
+  mount /dev/nvme0n1p1 /mnt # yes you are mounting under arch-chroot mounting on a mount... 
+  # install the grub EFI application grubx64.efi to /mnt/EFI/grub and installs its modules to /boot/grub/x86_64-efi
+  grub-install --target=x86_64-efi --efi-directory=/mnt --bootloader-id=GRUB
+  # After the above installation completed, the main GRUB directory is located at /boot/grub/. Note
+  # that grub-install also tries to create an entry in the firmware boot manager, named GRUB in the
+  # above example – this will, however, fail if your boot entries are full; use efibootmgr to remove
+  # unnecessary entries.
+  # then generate the main configuration file (/boot/grub/grub.cfg)
+  grub-mkconfig -o /boot/grub/grub.cfg
+#+end_src
+
+** Install Microcode  
+#+begin_src sh :eval none
+pacman -S intel-ucode
+# add the following to the environment
+CONFIG_BLK_DEV_INITRD=Y
+CONFIG_MICROCODE=y
+CONFIG_MICROCODE_INTEL=Y
+CONFIG_MICROCODE_AMD=y
+# remake grub config
+grub-mkconfig -o /boot/grub/grub.cfg
+#+end_src
+
+** Reboot and Pray
+
+* Scripted Install (start at Post-install)
+
+** Login as =root=
+
+** Download Scripts
+git clone https://github.com/jsilve24/ArchMatic.git
+Or use curl to get individual components
+
+** Setup Wifi
+#+begin_src sh :eval none
+systemctl enable NetworkManager
+systemctl start NetworkManager
+nmtui
+#+end_src
+
+** Run 0-setup.sh
+
+** Create a new user
+#+begin_src sh :eval none
+  pacman -S zsh sudo
+  useradd -m -s /usr/bin/zsh jds6696
+  passwd jds6696    # [then set to same as lenovo]
+  # add user to sudors
+  EDITOR=vim visudo # in environment 
+  # then
+  visudo /etc/sudoers
+  # then add user to wheel and sudo 
+  usermod -aG wheel jds6696
+  usermod -aG sudo jds6696
+#+end_src
+
+** Run 1-base.sh
+
+** Setup Nvdia Drivers
+#+begin_src sh :eval none
+  #Posted Here" https://bbs.archlinux.org/viewtopic.php?pid=2022500#p2022500
+  # Following the reverse prime directions [[https://wiki.archlinux.org/title/PRIME#Reverse_PRIME][reverse prime directions]] was not the solution.
+  pacman -S fwupd # to get firmware updates
+  pacman -S udisks2 # to deal with this warning https://github.com/fwupd/fwupd/wiki/PluginFlag:esp-not-found
+  pacman -S nvidia
+
+  # To avoid esp-not-found warnings also need to edit /etc/fwupd/uefi_capsule.conf and add
+  [uefi_capsule]
+  OverrideESPMountPoint=/boot   # Change according to your setup
+
+
+  # Then ran -- can repeat as needed -- firmware
+  fwupdmgr get-devices
+  fwupdmgr refresh
+  fwupdmgr get-updates
+  fwupdmgr update # will likely require reboot
+#+end_src
+
+** Run 2-software-pacman.sh
+
+** Switch to jds6696
+  su - jds6696
+
+** Run 3-software-aur.sh
+
+** Run 5-dotfiles.sh
+
+** Run 8-cleanup.sh
+
+** Final Things
+- Login to dropbox
+- login to github cli =gh auth login=
+- Setup zotero translation server
+- setup backup linux-lts kernel
+   
+
