@@ -11,6 +11,10 @@
 echo
 echo "Copying Over Secrets"
 echo 
+echo "Bitwarden Username:"
+read username
+sessionkey=$(bw login $username --raw)
+export BW_SESSION=$sessionkey
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .netrc.gpg
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .pam-gnupg
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .org-caldav-secrets.el.gpg
