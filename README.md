@@ -26,7 +26,7 @@ umount -R /mnt
 reboot
 ```
 
-### Arch Linux First Boot
+### Arch Linux First 
 
 ```bash
 pacman -S --noconfirm pacman-contrib curl git

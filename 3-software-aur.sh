@@ -11,8 +11,8 @@ echo
 echo "INSTALLING AUR SOFTWARE"
 echo
 
-echo "Please enter username:"
-read username
+# echo "Please enter username:"
+# read username
 
 cd "${HOME}"
 
@@ -24,26 +24,82 @@ PKGS=(
 
     # UTILITIES -----------------------------------------------------------
 
-    'i3lock-fancy'              # Screen locker
     'timeshift'                 # Backup and Restore
+    'borg'
+    'python-llfuse'             # required for borg
+    'ly'			# Display Manager
+    'zoxide'
+    'kmonad-bin'
+    'gnupg'
+    'xournalpp'
+    'globalprotect-openconnect' # for PSU vpn
 
-    # COMMUNICATIONS ------------------------------------------------------
+    # FILES ---------------------------------------------------------------
 
-    'brave-bin'                 # Brave
+    'dropbox'
+    'bitwarden'
+    'bitwarden-cli'
+    'rsync'
+    'github-cli'
 
-    # THEMES --------------------------------------------------------------
+    # FONTS ---------------------------------------------------------------
 
-    'lightdm-webkit-theme-aether'   # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
-    'materia-gtk-theme'             # Desktop Theme
-    'papirus-icon-theme'            # Desktop Icons
-    'capitaine-cursors'             # Cursor Icons
-    'autojump'                      # Zsh plugin
+    'cantarell-static-fonts'
+    'ttf-dejavu'
+    'ttf-fira-code'
+    'ttf-hack'
+    'ttf-jetbrains-mono' 
 
-    # APPS ----------------------------------------------------------------
+    # UTILS For Emacs -----------------------------------------------------
 
-    'discord'                       # Chat for gamers
-    'youtubemusic-nativefier'        # Music
+    'words'
+    'wordnet-common'
+    'wordnet-cli'
+    'global'
+    'ctags'
+    'libvterm'
+    'dragon-drop'
+    'scrot'
+    'libpng'
+    'zlib'
+    'poppler-glib'
+    'pandoc'
+    'ripgrep'
+    'repgrep-all'
+    'imagemagick'
+    'perl-image-exiftool'  	# used by org-bib-mode
+    'xdo' 			# used by org-protocol
 
+    # Mail ---------------------------------------------------------------
+
+    'autoconf'
+    'automake'
+    'pkg-config'
+    'mu'
+    'isync'
+    'davmail'
+
+    # LATEX --------------------------------------------------------------
+
+    'texlive-core'
+    'texlive-fontsextra'
+    'texlive-latexextra'
+    'biber'
+    'texlive-bibtexextra'
+    'texlive-science' 
+
+    # R ------------------------------------------------------------------
+
+    'libxls'
+    'udunits'
+
+    # PRINTING -----------------------------------------------------------
+    
+    'cups'
+    # ppd file gets installed to /opt/brother/Printers/HLL2380DW/cupswrapper/brother-HLL2380DW-cups-en.ppd
+    'brother-hl-l2380dw' 
+    'avahi'			# to get network discovery 
+    'nss-mdns'			# For Hostname Resolution
 )
 
 cd ${HOME}/yay

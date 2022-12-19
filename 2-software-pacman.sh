@@ -15,69 +15,77 @@ PKGS=(
 
     # SYSTEM --------------------------------------------------------------
 
-    'linux-lts'             # Long term support kernel
+    # 'linux-lts'             # Long term support kernel
 
     # TERMINAL UTILITIES --------------------------------------------------
 
-    'bleachbit'               # File deletion utility
-    'cmatrix'                 # The Matrix screen animation
-    'cronie'                  # cron jobs
     'curl'                    # Remote content retrieval
-    'file-roller'              # Archive utility
-    'gtop'                    # System monitoring via terminal
-    'gufw'                    # Firewall manager
-    'hardinfo'                # Hardware info app
     'htop'                    # Process viewer
-    'neofetch'                # Shows system info when you launch terminal
-    'ntp'                     # Network Time Protocol to set time via network.
-    'numlockx'                # Turns on numlock in X11
-    'p7zip'                   # 7z compression program
     'rsync'                   # Remote file sync utility
-    'speedtest-cli'           # Internet speed via terminal
-    'terminus-font'           # Font package with some bigger fonts for login terminal
     'unrar'                   # RAR compression program
     'unzip'                   # Zip compression program
     'wget'                    # Remote content retrieval
     'terminator'              # Terminal emulator
-    'vim'                     # Terminal Editor
-    'zenity'                  # Display graphical dialog boxes via shell scripts
-    'zip'                     # Zip compression program
     'zsh'                     # Interactive shell
     'zsh-autosuggestions'     # Zsh Plugin
     'zsh-syntax-highlighting' # Zsh Plugin
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'nautilus'              # Filesystem browser
-    'variety'               # Wallpaper changer
-    'clamav'                # Anti-virus
+    'plocate'
+    'emacs-nativecomp'
+
+    # i3  -----------------------------------------------------------------
+
+    'i3-wm'
+    'i3status'
+    'dmenu'
+    'arandr'
+    'autorandr'
+    'jq'
+    'xdotool'
 
     # DEVELOPMENT ---------------------------------------------------------
 
-    'gedit'                 # Text editor
-    'clang'                 # C Lang compiler
+    # 'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
-    'code'                  # Visual Studio Code
-    'electron'              # Cross-platform development using Javascript
     'git'                   # Version control system
     'gcc'                   # C/C++ compiler
-    'glibc'                 # C libraries
-    'meld'                  # File/directory comparison
-    'nodejs'                # Javascript runtime environment
-    'npm'                   # Node package manager
-    'python'                # Scripting language
-    'yarn'                  # Dependency management (Hyper needs this)
+    # 'glibc'                 # C libraries
+    'npm'                   # Node package manager, needed for hugo
+    'python-pip'              # Scripting language
 
-    # MEDIA ---------------------------------------------------------------
+    # Stuff for R
+    'r'
+    'tcl'
+    'libgit2'
+    'gcc-fortran'
+    'openmp'
+    'openssl-1.1'
 
-    'celluloid'             # Video player
-    'feh'                   # Image viewer
+    # WACOM ---------------------------------------------------------------
+
+    'xf86-input-wacom'        # to get xsetwacom
 
     # PRODUCTIVITY --------------------------------------------------------
 
-    'hunspell'              # Spellcheck libraries
-    'hunspell-en'           # English spellcheck library
-    'xpdf'                  # PDF viewer
+    'aspell'              # Spellcheck libraries
+    'aspell-en'           # English spellcheck library
+    'inotify-tools'       # Used by exwm-qute-edit script
+    'libreoffice-still'
+    'inkscape'
+    'gimp'
+    'spotify'
+    'textext'             # latex in inkscape
+    'hugo'
+    
+    # Sound --------------------------------------------------------------- 
+
+    # no microphone detected, try installing sof-firmware and alsa-ucm-conf from here: https://bbs.archlinux.org/viewtopic.php?id=258633
+    'alsa-utils'
+    'pulseaudio'
+    'pulseaudio-alsa'
+    'pamixer'
 
 )
 
@@ -85,6 +93,7 @@ for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed
 done
+
 
 echo
 echo "Done!"
