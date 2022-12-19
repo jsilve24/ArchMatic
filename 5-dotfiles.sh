@@ -67,7 +67,7 @@ echo "INSTALLING DOTFILES"
 echo 
 git lfs install
 git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-cd $HOME/.homesick/repos/homeschick 
+cd $HOME/.homesick/repos/homeshick 
 ./homeshick clone https://github.com/jsilve24/arch-dotfiles.git
 ./homeshick link arch-dotfiles
 
