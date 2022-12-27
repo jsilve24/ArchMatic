@@ -44,6 +44,9 @@ PKGS=(
     'pam-gnupg'
     'xournalpp'
     'globalprotect-openconnect' # for PSU vpn
+    'zoom'
+    'i3-battery-popup'         # warns about low battery
+    'zotero-translation-server-git'
 
     # FILES ---------------------------------------------------------------
 
