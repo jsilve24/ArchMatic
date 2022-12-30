@@ -165,3 +165,8 @@ ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chg
 ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness"
 EOF'
 sudo usermod -aG video jds6696
+
+echo
+echo "Enabling and Starting zotero-translation-server service"
+echo
+sudo systemctl enable --now zotero-translation-server.service
