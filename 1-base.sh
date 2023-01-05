@@ -29,6 +29,7 @@ PKGS=(
 
     # --- Networking Setup
         'networkmanager'            # Network connection manager
+	'network-manager-applet'    # to setup WPA2 Enterprise connections (psu)
 	'net-tools'
 	'inetutils'
 	'iwd'
