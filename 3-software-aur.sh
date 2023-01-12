@@ -47,6 +47,7 @@ PKGS=(
     'zoom'
     'i3-battery-popup'         # warns about low battery
     'zotero-translation-server-git'
+    'spotify'
 
     # FILES ---------------------------------------------------------------
 
