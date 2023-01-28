@@ -26,6 +26,8 @@ PKGS=(
 
     # --- Setup Utilities
 	'fzf' 			# fuzzy finder used by zoxide
+	'neovim'
+	# 'xclip'                 # for neovim
 
     # --- Networking Setup
         'networkmanager'            # Network connection manager

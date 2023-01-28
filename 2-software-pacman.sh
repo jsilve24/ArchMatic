@@ -34,6 +34,7 @@ PKGS=(
 
     'plocate'
     'emacs-nativecomp'
+    'hplip' 		      # hp laserjet drivers for office printer
 
     # i3  -----------------------------------------------------------------
 
