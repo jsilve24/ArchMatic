@@ -96,12 +96,15 @@ PKGS=(
 
     # LATEX --------------------------------------------------------------
 
-    'texlive-core'
-    'texlive-fontsextra'
+    'texlive-basic'
+    'texlive-latex'
     'texlive-latexextra'
-    'biber'
     'texlive-bibtexextra'
-    'texlive-science' 
+    'texlive-fontsrecommended'
+    'texlive-fontsextra'
+    'texlive-plaingeneric' # contains ulem.sty
+    'biber'
+    # 'texlive-science' 
 
     # R ------------------------------------------------------------------
 
