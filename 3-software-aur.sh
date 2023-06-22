@@ -104,6 +104,7 @@ PKGS=(
     'texlive-fontsextra'
     'texlive-plaingeneric' # contains ulem.sty
     'biber'
+    'pdfjam-extras' # pdfjam command for merging/splitting pdf files
     # 'texlive-science' 
 
     # R ------------------------------------------------------------------
