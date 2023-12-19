@@ -99,7 +99,7 @@ sudo systemctl enable --now kmonad-lenovo.service
 echo
 echo "Setting up Ly Display Manager"
 echo
-sudo systemctl enabel ly.service
+sudo systemctl enable ly.service
 sudo bash -c 'cat <<EOF > /etc/pam.d/ly
 #%PAM-1.0
 
