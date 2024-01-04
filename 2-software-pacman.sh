@@ -63,6 +63,7 @@ PKGS=(
     'gcc-fortran'
     'openmp'
     'openssl-1.1'
+    'icu' 			# needed for stringr I think
 
     # WACOM ---------------------------------------------------------------
 
