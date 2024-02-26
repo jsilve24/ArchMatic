@@ -64,6 +64,7 @@ PKGS=(
     'openmp'
     'openssl-1.1'
     'icu' 			# needed for stringr I think
+    'glpk' 			# needed for igraph
 
     # WACOM ---------------------------------------------------------------
 
