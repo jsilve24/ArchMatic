@@ -145,7 +145,7 @@ mkdir ~/.mail
 mkdir ~/.mail/psu
 mkdir ~/.mail/gmail
 davmail &
-mu init --maildir=.mail --my-address=jsilve24@gmail.com --my-address=JustinSilverman@psu.edu
+mu init --maildir=~/.mail --my-address=jsilve24@gmail.com --my-address=JustinSilverman@psu.edu --my-address=jds6696@psu.edu
 mu index
 mbsync -a
 
