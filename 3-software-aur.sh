@@ -45,7 +45,7 @@ PKGS=(
     'xournalpp'
     'globalprotect-openconnect' # for PSU vpn
     'zoom'
-    'i3-battery-popup'         # warns about low battery
+    # 'i3-battery-popup'         # warns about low battery # out of date
     'zotero-translation-server-git'
     'spotify'
 
