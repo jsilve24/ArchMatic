@@ -113,6 +113,15 @@ EOF'
 gpgconf --reload gpg-agent
 
 echo
+echo "Turning off startup beeping, blacklisting pcspkr"
+echo
+sudo bash -c 'cat << EOF > /etc/modprobe.d/nobeep.conf
+blacklist pcspkr
+blacklist snd_pcsp
+EOF'
+
+
+echo
 echo "Setting up EXWM"
 echo 
 sudo bash -c 'cat<<EOF > /usr/share/xsessions/emacs.desktop 
