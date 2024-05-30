@@ -48,6 +48,7 @@ PKGS=(
     # 'i3-battery-popup'         # warns about low battery # out of date
     'zotero-translation-server-git'
     'spotify'
+    'bashmount' 		# easy mounting and unmounting 
 
     # FILES ---------------------------------------------------------------
 
