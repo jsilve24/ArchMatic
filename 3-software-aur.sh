@@ -112,6 +112,17 @@ PKGS=(
 
     'libxls'
     'udunits'
+    # 'r-devtools'
+    # 'r-tidyverse'
+    # 'r-rcpp'
+    # 'r-languageserver'
+    # 'r-lintr'
+    # 'r-usethis'
+    # 'r-pkgdown'
+    # 'r-rstan'
+    # 'r-progress'
+    # 'r-philr'
+    # 'r-aldex2'
 
     # PRINTING -----------------------------------------------------------
     
