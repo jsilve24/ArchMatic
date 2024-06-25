@@ -137,10 +137,10 @@ echo "Linking dragon-drop to dragon"
 echo
 ln -s /sbin/dragon-drop /home/jds6696/bin/dragon
 
-echo 
-echo "Install ical2orgpy"
-echo 
-pip install ical2orgpy
+# echo 
+# echo "Install ical2orgpy"
+# echo 
+# pip install ical2orgpy
 
 echo 
 echo "INSTALLING .emacs.d"

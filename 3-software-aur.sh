@@ -49,6 +49,7 @@ PKGS=(
     'zotero-translation-server-git'
     'spotify'
     'bashmount' 		# easy mounting and unmounting 
+    'ical2orgpy-git'
 
     # FILES ---------------------------------------------------------------
 
