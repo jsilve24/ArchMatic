@@ -179,3 +179,13 @@ echo
 echo "Enabling and Starting zotero-translation-server service"
 echo
 sudo systemctl enable --now zotero-translation-server.service
+
+
+echo
+echo "passwordless sudo for restart and shutdown"
+echo
+sudo touch /etc/sudoers.d/passwordless-sudo-commands
+sudo bash -c 'cat << EOF > /etc/sudoers.d/passwordless-sudo-commands
+jds6696 ALL=NOPASSWD:/sbin/reboot
+jds6696 ALL=NOPASSWD:/sbin/shutdown
+EOF'
