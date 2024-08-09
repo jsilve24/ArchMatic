@@ -46,6 +46,7 @@ PKGS=(
     'globalprotect-openconnect' # for PSU vpn
     'zoom'
     # 'i3-battery-popup'         # warns about low battery # out of date
+    'auto-cpufreq'
     'zotero-translation-server-git'
     'spotify'
     'bashmount' 		# easy mounting and unmounting 

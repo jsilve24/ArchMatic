@@ -32,6 +32,18 @@ echo "Enabling plocate"
 echo
 sudo systemctl enable plocate-updatedb.timer
 
+
+echo
+echo "Enabling auto-cpufreq for better battery life"
+echo
+sudo systemctl enable auto-cpufreq
+
+
+echo
+echo "Enabling thermald"
+echo
+sudo systemctl enable thermald
+
 echo
 echo "Enabling Printing"
 echo 

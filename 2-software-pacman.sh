@@ -35,6 +35,7 @@ PKGS=(
     'plocate'
     'emacs-nativecomp'
     'hplip' 		      # hp laserjet drivers for office printer
+    'thermald'		      # better performance when avoiding overheating
 
     # i3  -----------------------------------------------------------------
 
