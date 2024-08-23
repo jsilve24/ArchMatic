@@ -71,6 +71,8 @@ PKGS=(
 
     # Stuff for Python
     'python-scikit-learn'
+    'python-matplotlib'
+    'pandas'
     
     # WACOM ---------------------------------------------------------------
 
