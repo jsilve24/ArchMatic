@@ -36,6 +36,7 @@ PKGS=(
     'emacs-nativecomp'
     'hplip' 		      # hp laserjet drivers for office printer
     'thermald'		      # better performance when avoiding overheating
+    'powertop'		      # system monitor focused on battery life
 
     # i3  -----------------------------------------------------------------
 
@@ -67,6 +68,10 @@ PKGS=(
     'icu' 			# needed for stringr I think
     'glpk' 			# needed for igraph
 
+
+    # Stuff for Python
+    'python-scikit-learn'
+    
     # WACOM ---------------------------------------------------------------
 
     'xf86-input-wacom'        # to get xsetwacom
