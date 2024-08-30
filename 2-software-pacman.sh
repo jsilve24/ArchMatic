@@ -56,7 +56,6 @@ PKGS=(
     'gcc'                   # C/C++ compiler
     # 'glibc'                 # C libraries
     'npm'                   # Node package manager, needed for hugo
-    'python-pip'              # Scripting language
 
     # Stuff for R
     'r'
@@ -70,9 +69,11 @@ PKGS=(
 
 
     # Stuff for Python
+    'python-pip'              # Scripting language
     'python-scikit-learn'
     'python-matplotlib'
     'pandas'
+    'jupyter-notebook'
     
     # WACOM ---------------------------------------------------------------
 
