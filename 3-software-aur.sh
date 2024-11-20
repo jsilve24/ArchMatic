@@ -45,7 +45,6 @@ PKGS=(
     'xournalpp'
     'globalprotect-openconnect' # for PSU vpn
     'zoom'
-    # 'i3-battery-popup'         # warns about low battery # out of date
     'auto-cpufreq'
     'zotero-translation-server-git'
     'spotify'
@@ -83,7 +82,7 @@ PKGS=(
     'poppler-glib'
     'pandoc'
     'ripgrep'
-    'repgrep-all'
+    'ripgrep-all'
     'imagemagick'
     'perl-image-exiftool'  	# used by org-bib-mode
     'xdo' 			# used by org-protocol
