@@ -230,8 +230,11 @@ Or use curl to get individual components
 
 ** Switch to jds6696
   su - jds6696
+  # reclone archmatic library
+  # install yay
 
 ** Run 3-software-aur.sh
+# Stopped here on [2025-02-26 Wed]
 
 ** Run 5-dotfiles.sh
 
