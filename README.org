@@ -3,9 +3,7 @@ Follow Install Guidelines here http://wiki.archlinux.org/title/installation_guid
 * Get Install Medium
 
 ** Check Install Signature 
-#+begin_src sh :eval none
-  pacman-key -v archlinux...iso.sig
-#+end_src
+See instructions here: https://archlinux.org/download/
 
 ** Write iso to usb use =lsblk= to find usb dev 
 #+begin_src sh :eval none
@@ -22,7 +20,7 @@ Default (US) is fine
 
 ** Verify Boot Mode
 #+begin_src sh :eval none
-  ls /sys/firmware/efi/efivars
+  cat /sys/firmware/efi/fw_platform_size
 #+end_src
 
 ** Connect to the Internet
@@ -126,7 +124,7 @@ vim /etc/locale.conf
 ** Network Configuration
 #+begin_src sh :eval none
 vim /etc/hostname
-# add line lenovoGen4Sil as my hostname (lenovoGen2Sil for backup)
+# add line lenovoX1Sil as my hostname (lenovoGen2Sil for backup)
 # install networking software
 pacman -S networkmanager net-tools inetutils iwd
 #+end_src
@@ -174,16 +172,19 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ** Login as =root=
 
-** Download Scripts
-git clone https://github.com/jsilve24/ArchMatic.git
-Or use curl to get individual components
-
 ** Setup Wifi
 #+begin_src sh :eval none
 systemctl enable NetworkManager
 systemctl start NetworkManager
 nmtui
 #+end_src
+
+** Download Scripts
+#+begin_src sh :eval none
+pacman -S git
+git clone https://github.com/jsilve24/ArchMatic.git
+#+end_src
+Or use curl to get individual components
 
 ** Run 0-setup.sh
 
