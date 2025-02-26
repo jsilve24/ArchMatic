@@ -39,7 +39,7 @@ PKGS=(
     'python-llfuse'             # required for borg
     'ly'			# Display Manager
     'zoxide'
-    'kmonad-bin'
+    'kmonad'
     'gnupg'
     'pam-gnupg'
     'xournalpp'
@@ -70,8 +70,8 @@ PKGS=(
     # UTILS For Emacs -----------------------------------------------------
 
     'words'
-    'wordnet-common'
-    'wordnet-cli'
+    # 'wordnet-common'
+    # 'wordnet-cli'
     'global'
     'ctags'
     'libvterm'
