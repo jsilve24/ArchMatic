@@ -116,7 +116,7 @@ hwclock --systohc
 #+begin_src sh :eval none
 vim /etc/locale.gen
 # then uncomment en_US.UTF-8 UTF-8
-local-gen # to generate locales
+locale-gen # to generate locales
 vim /etc/locale.conf
 # add LANG=en_US.UTF-8
 #+end_src
