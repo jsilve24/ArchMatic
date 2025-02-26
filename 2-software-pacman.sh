@@ -16,7 +16,6 @@ PKGS=(
     # SYSTEM --------------------------------------------------------------
 
     # 'linux-lts'             # Long term support kernel
-    'base-devel'
 
     # TERMINAL UTILITIES --------------------------------------------------
 
