@@ -66,6 +66,7 @@ PKGS=(
     'openssl-1.1'
     'icu' 			# needed for stringr I think
     'glpk' 			# needed for igraph
+    'checkbashisms'		# needed for R CMD Check
 
 
     # Stuff for Python

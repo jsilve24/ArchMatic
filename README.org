@@ -196,10 +196,12 @@ Or use curl to get individual components
   # add user to sudors
   EDITOR=vim visudo # in environment 
   # then
-  visudo /etc/sudoers
+  # uncomment line %wheel ALL=(ALL:ALL) ALL
+  # uncomment line %sudo ALL=(ALL:ALL) ALL
+  # visudo /etc/sudoers
   # then add user to wheel and sudo 
   usermod -aG wheel jds6696
-  usermod -aG sudo jds6696
+  # usermod -aG sudo jds6696
 #+end_src
 
 ** Run 1-base.sh
