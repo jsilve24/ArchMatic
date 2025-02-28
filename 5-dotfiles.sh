@@ -75,20 +75,10 @@ sudo systemctl enable --now cups.service
 
 
 echo 
-echo "INSTALLING DOTFILES"
-echo 
-git lfs install
-git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
-cd $HOME/.homesick/repos/homeshick 
-./homeshick clone https://github.com/jsilve24/arch-dotfiles.git
-./homeshick link arch-dotfiles
-
-
-
-echo 
 echo "Downloading zsh plugins"
 echo
 
+mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh-backup
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # move my .zshrc back and replace the one writen by oh-my-zsh
 # install plugins
@@ -100,13 +90,29 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 git clone https://github.com/micrenda/zsh-nohup ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/nohup
 
 echo 
+echo "INSTALLING DOTFILES"
+echo 
+git lfs install
+git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+cd $HOME/.homesick/repos/homeshick 
+./homeshick.sh clone https://github.com/jsilve24/arch-dotfiles.git
+./homeshick.sh link arch-dotfiles
+
+echo 
 echo "Setting up KMonad"
 echo
-cd $HOME/.homeschick/repos/arch-dotfiles/home/.config/kmonad
+cd $HOME/.homesick/repos/arch-dotfiles/home/.config/kmonad
 sudo cp kmonad-kinesis.service /etc/systemd/system/kmonad-kinesis.service
+hostname=$(hostname)
+if [[ "$hostname" == "lenovoX1Sil" ]]; then        
+    sudo cp kmonad-lenovo-X1.service /etc/systemd/system/kmonad-lenovo-X1.service
+    sudo systemctl enable --now kmonad-lenovo-X1.service
+elif [[ "$hostname" == "lenovoGen2Sil" ]]; then
+     sudo cp kmonad-lenovo.service /etc/systemd/system/kmonad-lenovo.service
+     sudo systemctl enable --now kmonad-lenovo.service
+fi
 sudo cp kmonad-lenovo.service /etc/systemd/system/kmonad-lenovo.service
 sudo systemctl enable --now kmonad-kinesis.service
-sudo systemctl enable --now kmonad-lenovo.service
 
 echo
 echo "Setting up Ly Display Manager"
@@ -201,3 +207,4 @@ sudo bash -c 'cat << EOF > /etc/sudoers.d/passwordless-sudo-commands
 jds6696 ALL=NOPASSWD:/sbin/reboot
 jds6696 ALL=NOPASSWD:/sbin/shutdown
 EOF'
+
