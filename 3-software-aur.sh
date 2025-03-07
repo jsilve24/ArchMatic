@@ -45,11 +45,12 @@ PKGS=(
     'xournalpp'
     'globalprotect-openconnect' # for PSU vpn
     'zoom'
-    'auto-cpufreq'
+    'auto-cpufreq'	
     'zotero-translation-server-git'
     'spotify'
     'bashmount' 		# easy mounting and unmounting 
     'ical2orgpy-git'
+    'google-chrome'
 
     # FILES ---------------------------------------------------------------
 
@@ -95,7 +96,7 @@ PKGS=(
     'mu'
     'isync'
     'davmail'
-    'slack'
+    'slack-desktop'
 
     # LATEX --------------------------------------------------------------
 
@@ -107,6 +108,7 @@ PKGS=(
     'texlive-fontsextra'
     'texlive-plaingeneric' # contains ulem.sty
     'texlive-binextra' # pdfjam command for merging/splitting pdf files
+    'texlive-mathscience'	# needed for algorithm.sty
     'biber'
     # 'texlive-science' 
 
