@@ -33,7 +33,8 @@ PKGS=(
     # GENERAL UTILITIES ---------------------------------------------------
 
     'plocate'
-    'emacs-nativecomp'
+    # 'emacs-nativecomp'
+    'emacs'
     'hplip' 		      # hp laserjet drivers for office printer
     'thermald'		      # better performance when avoiding overheating
     'powertop'		      # system monitor focused on battery life
