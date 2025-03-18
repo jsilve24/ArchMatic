@@ -65,6 +65,7 @@ PKGS=(
     'cantarell-static-fonts'
     'ttf-dejavu'
     'ttf-fira-code'
+    'ttf-fira-sans'		# for metropolis beamer theme
     'ttf-hack'
     'ttf-jetbrains-mono' 
 
