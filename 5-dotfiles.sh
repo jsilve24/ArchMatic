@@ -33,10 +33,13 @@ echo
 sudo systemctl enable plocate-updatedb.timer
 
 
-echo
-echo "Enabling auto-cpufreq for better battery life"
-echo
-sudo systemctl enable auto-cpufreq
+
+# disabling until this is fixed
+#   https://github.com/AdnanHodzic/auto-cpufreq/issues/661
+# echo
+# echo "Enabling auto-cpufreq for better battery life"
+# echo
+# sudo systemctl enable auto-cpufreq
 
 
 echo
