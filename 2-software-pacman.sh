@@ -87,6 +87,7 @@ PKGS=(
     'aspell-en'           # English spellcheck library
     'inotify-tools'       # Used by exwm-qute-edit script
     'libreoffice-still'
+    'hunspell-en' 	  # required by libreoffice for spelling
     'inkscape'
     'gimp'
     'spotify'

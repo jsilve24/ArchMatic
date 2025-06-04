@@ -51,6 +51,7 @@ PKGS=(
     'bashmount' 		# easy mounting and unmounting 
     'ical2orgpy-git'
     'google-chrome'
+    'hunspell-en_us'		# required by libreoffice (hunspell installed in pacman file)
 
     # FILES ---------------------------------------------------------------
 
