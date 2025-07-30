@@ -211,3 +211,8 @@ jds6696 ALL=NOPASSWD:/sbin/reboot
 jds6696 ALL=NOPASSWD:/sbin/shutdown
 EOF'
 
+
+echo
+echo "Disable Ctrl+Alt+Delete"
+echo
+sudo sed -i '/Option\s\+"XkbOptions"\s\+"terminate:ctrl_alt_bksp"/d' /etc/X11/xorg.conf.d/00-keyboard.conf
