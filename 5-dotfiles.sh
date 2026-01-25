@@ -120,7 +120,7 @@ sudo systemctl enable --now kmonad-kinesis.service
 echo
 echo "Setting up Ly Display Manager"
 echo
-sudo systemctl enable ly.service
+sudo systemctl enable ly@tty1.service
 sudo bash -c 'cat <<EOF > /etc/pam.d/ly
 #%PAM-1.0
 

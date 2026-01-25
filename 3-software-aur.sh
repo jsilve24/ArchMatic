@@ -103,6 +103,8 @@ PKGS=(
     # LATEX --------------------------------------------------------------
 
     'texlive-basic'
+    'texlive-core'
+    'texlive-luatex'
     'texlive-latex'
     'texlive-latexextra'
     'texlive-bibtexextra'
