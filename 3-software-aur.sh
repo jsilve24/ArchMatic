@@ -52,6 +52,7 @@ PKGS=(
     'ical2orgpy-git'
     'google-chrome'
     'hunspell-en_us'		# required by libreoffice (hunspell installed in pacman file)
+    'claude-code'
 
     # FILES ---------------------------------------------------------------
 
