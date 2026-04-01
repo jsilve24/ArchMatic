@@ -24,7 +24,9 @@ bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .bw_secret.gpg
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .authinfo.gpg
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .gmail_mailpass.gpg
 bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .gnupg.tar.gz
+bw get attachment --itemid ee3eb1eb-4f27-409a-a0b4-ae8101526b43 .ssh.tar.gz
 tar -zxvf .gnupg.tar.gz
+tar -zxvf .ssh.tar.gz
 
 
 echo
