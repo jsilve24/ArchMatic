@@ -39,6 +39,7 @@ PKGS=(
     # --- Browsers
 	'qutebrowser'
 	'pdfjs-legacy'            #  legacy pdfjs support until Q6 is supported
+	# 'pdfjs'
 
     # --- Bluetooth
         # 'bluez'                 # Daemons for the bluetooth protocol stack

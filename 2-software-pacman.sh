@@ -51,6 +51,8 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
 
+    'openai-codex'
+
     # 'clang'                 # C Lang compiler
     'cmake'                 # Cross-platform open-source make system
     'git'                   # Version control system
