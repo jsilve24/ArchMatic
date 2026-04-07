@@ -236,6 +236,13 @@ Or use curl to get individual components
 ** Run 3-software-aur.sh
 # Stopped here on [2025-02-26 Wed]
 
+** Run 6-r-packages.sh
+#+begin_src sh :eval none
+  ./6-r-packages.sh
+#+end_src
+This installs or updates the preferred R packages after base system dependencies and =r=
+are already in place. The package list lives in =scripts/setup-r-env.R=.
+
 ** Run 5-dotfiles.sh
 
 ** Run 8-cleanup.sh
@@ -245,5 +252,16 @@ Or use curl to get individual components
 - login to github cli =gh auth login=
 - Setup zotero translation server
 - setup backup linux-lts kernel
-   
 
+* R Package Bootstrap
+
+Run =./6-r-packages.sh= any time you want to refresh the R environment. It is safe to
+run repeatedly: the script checks installed versions, skips packages that are already
+current when it can, and continues if one package fails so the rest of the environment
+still gets set up.
+
+Package sources are configured in =scripts/setup-r-env.R=:
+- =cran_packages= for CRAN
+- =bioc_packages= for Bioconductor
+- =github_packages= for GitHub repos in =owner/repo= form
+   
