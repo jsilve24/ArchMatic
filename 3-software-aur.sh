@@ -37,6 +37,7 @@ PKGS=(
     'timeshift'                 # Backup and Restore
     'borg'
     'python-llfuse'             # required for borg
+    'basedpyright'		# python languagemodel (for eglot)
     'ly'			# Display Manager
     'zoxide'
     'kmonad'
