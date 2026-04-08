@@ -38,6 +38,7 @@ PKGS=(
     'hplip' 		      # hp laserjet drivers for office printer
     'thermald'		      # better performance when avoiding overheating
     'powertop'		      # system monitor focused on battery life
+    'noto-fonts-emoji'
 
     # i3  -----------------------------------------------------------------
 

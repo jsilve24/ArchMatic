@@ -38,6 +38,8 @@ PKGS=(
     'borg'
     'python-llfuse'             # required for borg
     'basedpyright'		# python languagemodel (for eglot)
+    'codex-acp'
+    'claude-agent-acp'
     'ly'			# Display Manager
     'zoxide'
     'kmonad'
