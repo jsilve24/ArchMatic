@@ -40,6 +40,8 @@ PKGS=(
     'basedpyright'		# python languagemodel (for eglot)
     'codex-acp'
     'claude-agent-acp'
+    'gemini-cli'		# could actually be in pacman... 
+    'rtk'
     'ly'			# Display Manager
     'zoxide'
     'kmonad'
@@ -56,6 +58,7 @@ PKGS=(
     'google-chrome'
     'hunspell-en_us'		# required by libreoffice (hunspell installed in pacman file)
     'claude-code'
+    'ollama' 
 
     # FILES ---------------------------------------------------------------
 
