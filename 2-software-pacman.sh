@@ -40,6 +40,9 @@ PKGS=(
     'powertop'		      # system monitor focused on battery life
     'noto-fonts-emoji'
 
+    # other --------------------------------------------------------------- 
+    'anki'
+
     # i3  -----------------------------------------------------------------
 
     'i3-wm'
@@ -60,6 +63,8 @@ PKGS=(
     'gcc'                   # C/C++ compiler
     # 'glibc'                 # C libraries
     'npm'                   # Node package manager, needed for hugo
+    'clang'                 # language server for c++ 
+    'texlab'                # language server for latex
 
     # Stuff for R
     'r'

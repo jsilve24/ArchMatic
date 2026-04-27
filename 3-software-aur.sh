@@ -41,6 +41,7 @@ PKGS=(
     'codex-acp'
     'claude-agent-acp'
     'gemini-cli'		# could actually be in pacman... 
+    'github-copilot-cli'
     'rtk'
     'ly'			# Display Manager
     'zoxide'
@@ -120,6 +121,7 @@ PKGS=(
     'texlive-plaingeneric' # contains ulem.sty
     'texlive-binextra' # pdfjam command for merging/splitting pdf files
     'texlive-mathscience'	# needed for algorithm.sty
+    'latex-pdfpages'
     'biber'
     # 'texlive-science' 
 
