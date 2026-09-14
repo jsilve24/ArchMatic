@@ -62,7 +62,7 @@ PKGS=(
     'git'                   # Version control system
     'gcc'                   # C/C++ compiler
     # 'glibc'                 # C libraries
-    'npm'                   # Node package manager, needed for hugo
+    'npm'                   # Node package manager, needed for Hugo and Codex ACP
     'clang'                 # language server for c++ 
     'texlab'                # language server for latex
 

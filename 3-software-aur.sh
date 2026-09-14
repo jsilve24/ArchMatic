@@ -38,7 +38,7 @@ PKGS=(
     'borg'
     'python-llfuse'             # required for borg
     'basedpyright'		# python languagemodel (for eglot)
-    'codex-acp'
+    'chatgpt-desktop'
     'claude-agent-acp'
     'gemini-cli'		# could actually be in pacman... 
     'github-copilot-cli'
@@ -129,6 +129,7 @@ PKGS=(
 
     'libxls'
     'udunits'
+    'checkbashisms'
     # 'r-devtools'
     # 'r-tidyverse'
     # 'r-rcpp'

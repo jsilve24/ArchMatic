@@ -187,6 +187,23 @@ echo "Setup Hugo and npm"
 echo 
 npm install postcss postcss-cli autoprefixer
 
+echo
+echo "Installing Codex ACP through npm"
+echo
+# npm is installed by 2-software-pacman.sh.
+# https://github.com/agentclientprotocol/codex-acp#installation
+# Use a system-wide binary so Emacs can continue launching codex-acp directly.
+if ! command -v npm >/dev/null 2>&1; then
+    echo "npm is required; run 2-software-pacman.sh first." >&2
+    exit 1
+fi
+sudo npm install --global --prefix /usr/local @agentclientprotocol/codex-acp || exit 1
+
+# Migrate existing installs only after the npm installation succeeds.
+if pacman -Q codex-acp >/dev/null 2>&1; then
+    sudo pacman -R --noconfirm codex-acp || exit 1
+fi
+
 
 echo 
 echo "Giving User Backlight Privledges"
