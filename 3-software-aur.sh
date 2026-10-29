@@ -40,8 +40,10 @@ PKGS=(
     'basedpyright'		# python languagemodel (for eglot)
     'chatgpt-desktop'
     'claude-agent-acp'
-    'gemini-cli'		# could actually be in pacman... 
+    'codex-acp'
     'github-copilot-cli'
+    'antigravity-cli'
+    'agy-acp-server'
     'rtk'
     'ly'			# Display Manager
     'zoxide'
@@ -111,6 +113,7 @@ PKGS=(
     # LATEX --------------------------------------------------------------
 
     'texlive-basic'
+    'texlive-publishers' 	# needed for vancouver.bst
     'texlive-core'
     'texlive-luatex'
     'texlive-latex'
